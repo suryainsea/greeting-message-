@@ -7,7 +7,7 @@
   <style>
     /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* Updated image link */
+      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* Updated image */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -28,30 +28,32 @@
       padding: 20px;
     }
 
-    /* Countdown text with shimmering effect */
+    /* Countdown text with animation and tricolor effect */
     .countdown {
-      font-size: 50px;
+      font-size: 45px; /* Reduced size by 10% */
       font-weight: bold;
       margin: 20px;
-      padding: 0;
+      padding: 30px;
       border-radius: 15px;
+      width: 80%;
+      max-width: 700px;
+      animation: glow 1.5s ease-in-out infinite alternate;
       text-transform: uppercase;
       letter-spacing: 2px;
-      background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+      background: linear-gradient(to left, #ff9933, white, #138808); /* Tricolor effect */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 2s infinite;
     }
 
-    /* Shimmer animation */
-    @keyframes shimmer {
-      0% { background-position: -100%; }
-      100% { background-position: 200%; }
+    /* Countdown animation for glow effect */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
+      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
     }
 
     /* Styling for input field */
     .name-input {
-      font-size: 22px;
+      font-size: 20px;
       padding: 12px;
       margin-top: 30px;
       text-align: center;
@@ -76,7 +78,7 @@
 
     /* Button Styling */
     .cta-button {
-      font-size: 22px;
+      font-size: 20px;
       padding: 12px;
       background-color: #ff9933;
       border-radius: 8px;
@@ -103,7 +105,7 @@
     <h1 class="countdown" id="countdown"></h1>
 
     <!-- Dynamic Name Input -->
-    <input type="text" class="name-input" id="nameInput" placeholder="Apna Naam Likhein" oninput="updateMessage()">
+    <input type="text" class="name-input" id="nameInput" placeholder="अपने नाम से Republic Day greet करने के लिए यहाँ क्लिक करें" oninput="updateMessage()">
     
     <!-- CTA Button to your site -->
     <button class="cta-button" onclick="window.location.href='https://sites.google.com/view/scliteracy/home'">
@@ -131,11 +133,11 @@
       // Update the countdown display with the dynamic name and message
       var countdownMessage = document.getElementById("countdown");
       countdownMessage.innerHTML =
-        name + "  तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
+        name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
 
       // If countdown is over, display a message
       if (distance < 0) {
-        countdownMessage.innerHTML = name + " तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
+        countdownMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
       }
     }
 
