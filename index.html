@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown to Republic Day 2025</title>
   <style>
-    /* Body styling for background image */
+    /* Body styling for the new background image */
     body {
-      background-image: url('https://i.postimg.cc/gJppqs54/image-1.jpg'); /* Background image link */
-      background-size: cover; /* Ensures the image covers the full screen */
-      background-position: center; /* Centers the image */
-      background-attachment: fixed; /* Keeps the image fixed during scrolling */
+      background-image: url('https://i.postimg.cc/rFXvZ463/image-4.webp'); /* Updated background image link */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       font-family: 'Arial', sans-serif;
       margin: 0;
       height: 100vh;
@@ -28,29 +28,22 @@
       padding: 20px;
     }
 
-    /* Fancy countdown text with animation and tricolor theme */
+    /* Countdown text with tricolor effect and better readability */
     .countdown {
       font-size: 50px;
       font-weight: bold;
       margin: 20px;
       padding: 30px;
-      background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+      background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent background */
       border-radius: 15px;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
       width: 80%;
       max-width: 700px;
-      animation: glow 1.5s ease-in-out infinite alternate;
-      text-transform: uppercase; /* Capitalize text for effect */
+      text-transform: uppercase;
       letter-spacing: 2px;
-      background-image: linear-gradient(to left, #ff9933, white, #138808); /* Tricolor background effect */
-      color: white;
-      text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Countdown animation for glow effect */
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
-      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
+      background-image: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Tricolor gradient */
+      color: #333;
+      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); /* Stronger text shadow */
     }
 
     /* Fancy styling for the name input field */
@@ -78,26 +71,34 @@
       outline: none;
     }
 
-    /* Additional Styling for visual appeal */
-    h1 {
-      font-size: 40px;
-      color: #ff9933; /* Orange color */
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-      margin-bottom: 30px;
+    /* Styling for the clickable link button */
+    .click-button {
+      font-size: 22px;
+      text-decoration: none;
+      color: white;
+      background-color: #138808; /* Green background */
+      padding: 15px 30px;
+      margin-top: 30px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .click-button:hover {
+      transform: scale(1.05);
+      background-color: #ff9933; /* Change color on hover */
     }
   </style>
 </head>
 <body>
 
   <div class="countdown-container">
-    <!-- Header Text with Updated Heading -->
-    <h1>HAPPY REPUBLIC DAY 2025</h1>
-
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
 
-    <!-- Dynamic Name Input -->
-    <input type="text" class="name-input" id="nameInput" placeholder="Apna Naam Likhein" oninput="updateMessage()">
+    <!-- Text button for your website -->
+    <a href="https://sites.google.com/view/scliteracy/home" target="_blank" class="click-button">घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें</a>
   </div>
 
   <script>
@@ -128,33 +129,9 @@
       }
     }
 
-    // Function to update name dynamically
-    function updateMessage() {
-      var inputName = document.getElementById("nameInput").value;
-      if (inputName.trim() != "") {
-        name = inputName; // Update the name if input is not empty
-      } else {
-        name = "SCL Academy"; // Default name if input is empty
-      }
-      updateCountdown(); // Update the countdown with new name
-    }
-
     // Update countdown every second
     setInterval(updateCountdown, 1000);
   </script>
 
 </body>
 </html>
-@media screen and (max-width: 600px) {
-  .countdown {
-    font-size: 30px;
-    padding: 20px;
-    width: 90%;
-  }
-
-  .name-input {
-    font-size: 18px;
-    width: 80%;
-    padding: 10px;
-  }
-}
