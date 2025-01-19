@@ -7,7 +7,7 @@
   <style>
     /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/mkvR8pY5/republic-day-image.png'); /* New image link */
+      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* Updated image link */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -17,7 +17,7 @@
       color: white;
     }
 
-    /* Centering the countdown */
+    /* Centering the content */
     .countdown-container {
       display: flex;
       justify-content: center;
@@ -28,83 +28,96 @@
       padding: 20px;
     }
 
-    /* Countdown text with metallic effect and animation */
+    /* Countdown text with shimmering effect */
     .countdown {
       font-size: 50px;
       font-weight: bold;
       margin: 20px;
-      padding: 30px;
-      background: transparent;
+      padding: 0;
       border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-      width: 80%;
-      max-width: 700px;
-      animation: glow 1.5s ease-in-out infinite alternate;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-      background-image: linear-gradient(45deg, #ff9933, #ffffff, #138808); /* Tricolor background effect */
+      background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 2s infinite;
     }
 
-    /* Animation for metallic text effect */
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
-      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
+    /* Shimmer animation */
+    @keyframes shimmer {
+      0% { background-position: -100%; }
+      100% { background-position: 200%; }
     }
 
-    /* Button styling for "Click Here" */
-    .button {
+    /* Styling for input field */
+    .name-input {
       font-size: 22px;
-      padding: 12px 25px;
+      padding: 12px;
       margin-top: 30px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      border: none;
+      color: #333;
+      width: 70%;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .name-input::placeholder {
+      color: #555;
+    }
+
+    .name-input:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Button Styling */
+    .cta-button {
+      font-size: 22px;
+      padding: 12px;
       background-color: #ff9933;
       border-radius: 8px;
       border: none;
       color: white;
-      text-decoration: none;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      width: 70%;
+      max-width: 350px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: background-color 0.3s;
     }
 
-    .button:hover {
-      transform: scale(1.1);
+    .cta-button:hover {
+      background-color: #e67e22;
     }
 
-    /* Media query for mobile responsiveness */
-    @media (max-width: 600px) {
-      .countdown {
-        font-size: 40px;
-        padding: 20px;
-      }
-
-      .button {
-        font-size: 18px;
-        padding: 10px 20px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="countdown-container">
-    <!-- Countdown Text -->
-    <div class="countdown" id="countdown"></div>
+    <!-- Header Text -->
+    <h1 class="countdown" id="countdown"></h1>
 
-    <!-- Button for site link -->
-    <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
+    <!-- Dynamic Name Input -->
+    <input type="text" class="name-input" id="nameInput" placeholder="Apna Naam Likhein" oninput="updateMessage()">
+    
+    <!-- CTA Button to your site -->
+    <button class="cta-button" onclick="window.location.href='https://sites.google.com/view/scliteracy/home'">
       घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
-    </a>
+    </button>
   </div>
 
   <script>
-    var name = "SCL Academy"; // Default name
+    var name = "मेरे "; // Default name
 
     // Function to update countdown dynamically
     function updateCountdown() {
-      var now = new Date().getTime();  // Current time
-      var targetDate = new Date("January 26, 2025 00:00:00").getTime();  // Target date
+      var now = new Date().getTime(); // Current time
+      var targetDate = new Date("January 26, 2025 00:00:00").getTime(); // Target date
 
       // Calculate the difference between current time and target date
       var distance = targetDate - now;
@@ -118,12 +131,23 @@
       // Update the countdown display with the dynamic name and message
       var countdownMessage = document.getElementById("countdown");
       countdownMessage.innerHTML =
-        name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
+        name + "  तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
 
       // If countdown is over, display a message
       if (distance < 0) {
-        countdownMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
+        countdownMessage.innerHTML = name + " तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
       }
+    }
+
+    // Function to update name dynamically
+    function updateMessage() {
+      var inputName = document.getElementById("nameInput").value;
+      if (inputName.trim() != "") {
+        name = inputName; // Update the name if input is not empty
+      } else {
+        name = "Mere se"; // Default name if input is empty
+      }
+      updateCountdown(); // Update the countdown with new name
     }
 
     // Update countdown every second
