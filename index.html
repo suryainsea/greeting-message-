@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to Republic Day 2025</title>
+  <style>
+    /* Body styling for background image */
+    body {
+      background-image: url('https://i.postimg.cc/gJppqs54/image-1.jpg'); /* Background image link */
+      background-size: cover; /* Ensures the image covers the full screen */
+      background-position: center; /* Centers the image */
+      background-attachment: fixed; /* Keeps the image fixed during scrolling */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      height: 100vh;
+      color: white;
+    }
+
+    /* Centering the countdown */
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Fancy countdown text with animation and tricolor theme */
+    .countdown {
+      font-size: 50px;
+      font-weight: bold;
+      margin: 20px;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+      width: 80%;
+      max-width: 700px;
+      animation: glow 1.5s ease-in-out infinite alternate;
+      text-transform: uppercase; /* Capitalize text for effect */
+      letter-spacing: 2px;
+      background-image: linear-gradient(to left, #ff9933, white, #138808); /* Tricolor background effect */
+      color: white;
+      text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Countdown animation for glow effect */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
+      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
+    }
+
+    /* Fancy styling for the name input field */
+    .name-input {
+      font-size: 22px;
+      padding: 12px;
+      margin-top: 30px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      border: none;
+      color: #333;
+      width: 70%;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .name-input::placeholder {
+      color: #555;
+    }
+
+    .name-input:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Additional Styling for visual appeal */
+    h1 {
+      font-size: 40px;
+      color: #ff9933; /* Orange color */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="countdown-container">
+    <!-- Header Text with Updated Heading -->
+    <h1>HAPPY REPUBLIC DAY 2025</h1>
+
+    <!-- Countdown Text -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Dynamic Name Input -->
+    <input type="text" class="name-input" id="nameInput" placeholder="Apna Naam Likhein" oninput="updateMessage()">
+  </div>
+
+  <script>
+    var name = "SCL Academy"; // Default name
+
+    // Function to update countdown dynamically
+    function updateCountdown() {
+      var now = new Date().getTime();  // Current time
+      var targetDate = new Date("January 26, 2025 00:00:00").getTime();  // Target date
+
+      // Calculate the difference between current time and target date
+      var distance = targetDate - now;
+
+      // Time calculations for days, hours, minutes, and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Update the countdown display with the dynamic name and message
+      var countdownMessage = document.getElementById("countdown");
+      countdownMessage.innerHTML =
+        name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
+
+      // If countdown is over, display a message
+      if (distance < 0) {
+        countdownMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
+      }
+    }
+
+    // Function to update name dynamically
+    function updateMessage() {
+      var inputName = document.getElementById("nameInput").value;
+      if (inputName.trim() != "") {
+        name = inputName; // Update the name if input is not empty
+      } else {
+        name = "SCL Academy"; // Default name if input is empty
+      }
+      updateCountdown(); // Update the countdown with new name
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
+@media screen and (max-width: 600px) {
+  .countdown {
+    font-size: 30px;
+    padding: 20px;
+    width: 90%;
+  }
+
+  .name-input {
+    font-size: 18px;
+    width: 80%;
+    padding: 10px;
+  }
+}
