@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown to Republic Day 2025</title>
   <style>
-    /* Body styling for the new background image */
+    /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/rFXvZ463/image-4.webp'); /* Updated background image link */
+      background-image: url('https://i.postimg.cc/mkvR8pY5/republic-day-image.png'); /* New image link */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -28,66 +28,61 @@
       padding: 20px;
     }
 
-    /* Countdown text with tricolor effect and better readability */
+    /* Countdown text with metallic effect and animation */
     .countdown {
       font-size: 50px;
       font-weight: bold;
       margin: 20px;
       padding: 30px;
-      background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent background */
+      background: transparent;
       border-radius: 15px;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
       width: 80%;
       max-width: 700px;
+      animation: glow 1.5s ease-in-out infinite alternate;
       text-transform: uppercase;
       letter-spacing: 2px;
-      background-image: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Tricolor gradient */
-      color: #333;
-      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); /* Stronger text shadow */
+      color: #fff;
+      text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+      background-image: linear-gradient(45deg, #ff9933, #ffffff, #138808); /* Tricolor background effect */
     }
 
-    /* Fancy styling for the name input field */
-    .name-input {
+    /* Animation for metallic text effect */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
+      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
+    }
+
+    /* Button styling for "Click Here" */
+    .button {
       font-size: 22px;
-      padding: 12px;
+      padding: 12px 25px;
       margin-top: 30px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: #ff9933;
       border-radius: 8px;
       border: none;
-      color: #333;
-      width: 70%;
-      max-width: 350px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .name-input::placeholder {
-      color: #555;
-    }
-
-    .name-input:focus {
-      transform: scale(1.05);
-      outline: none;
-    }
-
-    /* Styling for the clickable link button */
-    .click-button {
-      font-size: 22px;
-      text-decoration: none;
       color: white;
-      background-color: #138808; /* Green background */
-      padding: 15px 30px;
-      margin-top: 30px;
-      border-radius: 8px;
-      display: inline-block;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
 
-    .click-button:hover {
-      transform: scale(1.05);
-      background-color: #ff9933; /* Change color on hover */
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Media query for mobile responsiveness */
+    @media (max-width: 600px) {
+      .countdown {
+        font-size: 40px;
+        padding: 20px;
+      }
+
+      .button {
+        font-size: 18px;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
@@ -97,8 +92,10 @@
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
 
-    <!-- Text button for your website -->
-    <a href="https://sites.google.com/view/scliteracy/home" target="_blank" class="click-button">घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें</a>
+    <!-- Button for site link -->
+    <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
+      घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
+    </a>
   </div>
 
   <script>
