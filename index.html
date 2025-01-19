@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown to Republic Day 2025</title>
   <style>
+    /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg');
+      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* Updated image */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -16,6 +17,7 @@
       color: white;
     }
 
+    /* Centering the content */
     .countdown-container {
       display: flex;
       justify-content: center;
@@ -26,61 +28,58 @@
       padding: 20px;
     }
 
+    /* Countdown text with animation */
     .countdown {
-      font-size: 40px;
+      font-size: 50px; /* Adjusted for better readability */
       font-weight: bold;
       margin: 20px;
-      padding: 20px;
+      padding: 30px;
       border-radius: 15px;
-      width: 80%;
-      max-width: 700px;
+      width: 85%; /* Increased width */
+      max-width: 750px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       background: linear-gradient(to right, #ff9933, #ffffff, #138808);
-      background-clip: text;
+      background-size: 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: textGlow 2s infinite;
+      animation: tricolorShift 3s linear infinite;
     }
 
-    @keyframes textGlow {
-      0% {
-        text-shadow: 0 0 5px #ff9933, 0 0 10px #ffffff, 0 0 15px #138808;
-      }
-      50% {
-        text-shadow: 0 0 10px #ff9933, 0 0 20px #ffffff, 0 0 30px #138808;
-      }
-      100% {
-        text-shadow: 0 0 5px #ff9933, 0 0 10px #ffffff, 0 0 15px #138808;
-      }
+    @keyframes tricolorShift {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
     }
 
+    /* Styling for input field */
     .name-input {
       font-size: 18px;
-      padding: 12px;
+      padding: 15px; /* Increased size */
       margin-top: 30px;
       text-align: center;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 8px;
       border: none;
       color: #333;
-      width: 70%;
-      max-width: 350px;
+      width: 80%;
+      max-width: 400px; /* Adjusted for better sizing */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s;
     }
 
     .name-input::placeholder {
       color: #555;
-      font-style: italic;
     }
 
     .name-input:focus {
       transform: scale(1.05);
-      background-color: #e6f7ff;
+      background-color: rgba(173, 216, 230, 0.9); /* Light blue effect */
       outline: none;
     }
 
+    /* Button Styling */
     .cta-button {
-      font-size: 18px;
+      font-size: 20px;
       padding: 12px;
       background-color: #ff9933;
       border-radius: 8px;
@@ -91,94 +90,72 @@
       margin-top: 30px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      transition: transform 0.3s, background-color 0.3s;
+      transition: background-color 0.3s;
     }
 
     .cta-button:hover {
-      transform: scale(1.1);
       background-color: #e67e22;
     }
 
-    @keyframes rain {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(100vh);
-      }
-    }
-
-    .rain {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 2px;
-      height: 60px;
-      background: linear-gradient(to bottom, #ff9933, #ffffff, #138808);
-      opacity: 0.8;
-      animation: rain 1.5s linear infinite;
-    }
-
-    .rain:nth-child(2) {
-      left: 20%;
-      animation-delay: 0.5s;
-    }
-
-    .rain:nth-child(3) {
-      left: 80%;
-      animation-delay: 1s;
-    }
   </style>
 </head>
 <body>
+
   <div class="countdown-container">
+    <!-- Header Text -->
     <h1 class="countdown" id="countdown"></h1>
 
-    <input type="text" class="name-input" id="nameInput" placeholder="अपने नाम से Republic Day greet करें" oninput="updateMessage()">
-
+    <!-- Dynamic Name Input -->
+    <input type="text" class="name-input" id="nameInput" placeholder="अपने नाम से Republic Day greet करने के लिए यहाँ क्लिक करें" oninput="updateMessage()">
+    
+    <!-- CTA Button to your site -->
     <button class="cta-button" onclick="window.location.href='https://sites.google.com/view/scliteracy/home'">
       घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
     </button>
   </div>
 
-  <div class="rain"></div>
-  <div class="rain"></div>
-  <div class="rain"></div>
-
   <script>
-    var name = "मेरे ";
+    var name = "मेरे "; // Default name
 
+    // Function to update countdown dynamically
     function updateCountdown() {
-      var now = new Date().getTime();
-      var targetDate = new Date("January 26, 2025 00:00:00").getTime();
+      var now = new Date().getTime(); // Current time
+      var targetDate = new Date("January 26, 2025 00:00:00").getTime(); // Target date
 
+      // Calculate the difference between current time and target date
       var distance = targetDate - now;
 
+      // Time calculations for days, hours, minutes, and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+      // Update the countdown display with the dynamic name and message
       var countdownMessage = document.getElementById("countdown");
       countdownMessage.innerHTML =
         name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
 
+      // If countdown is over, display a message
       if (distance < 0) {
         countdownMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
       }
     }
 
+    // Function to update name dynamically
     function updateMessage() {
       var inputName = document.getElementById("nameInput").value;
       if (inputName.trim() != "") {
-        name = inputName;
+        name = inputName; // Update the name if input is not empty
       } else {
-        name = "Mere se";
+        name = "Mere se"; // Default name if input is empty
       }
-      updateCountdown();
+      updateCountdown(); // Update the countdown with new name
     }
 
+    // Update countdown every second
     setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
