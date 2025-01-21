@@ -22,7 +22,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      flex-direction: column; /* Default column direction */
       height: 100%;
       text-align: center;
       padding: 20px;
@@ -65,6 +65,10 @@
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: transform 0.3s ease;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .button:hover {
@@ -87,14 +91,14 @@
 </head>
 <body>
 
+  <!-- Button for site link at the top -->
+  <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
+    घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
+  </a>
+
   <div class="countdown-container">
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
-
-    <!-- Button for site link -->
-    <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
-      घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
-    </a>
   </div>
 
   <script>
