@@ -7,7 +7,7 @@
   <style>
     /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/mkvR8pY5/republic-day-image.png'); /* New image link */
+      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* New image link */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -28,29 +28,28 @@
       padding: 20px;
     }
 
-    /* Countdown text with metallic effect and animation */
+    /* Countdown text with tricolor animation */
     .countdown {
       font-size: 50px;
       font-weight: bold;
       margin: 20px;
       padding: 30px;
-      background: transparent;
       border-radius: 15px;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
       width: 80%;
       max-width: 700px;
-      animation: glow 1.5s ease-in-out infinite alternate;
+      animation: tricolor 3s linear infinite;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #fff;
+      color: white;
       text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-      background-image: linear-gradient(45deg, #ff9933, #ffffff, #138808); /* Tricolor background effect */
     }
 
-    /* Animation for metallic text effect */
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ff9933, 0 0 20px #ff9933, 0 0 30px #ff9933; }
-      100% { text-shadow: 0 0 20px #ff6600, 0 0 40px #ff6600, 0 0 50px #ff6600; }
+    /* Animation for tricolor effect */
+    @keyframes tricolor {
+      0% { background: linear-gradient(45deg, #ff9933, #ffffff, #138808); background-clip: text; color: transparent; }
+      50% { background: linear-gradient(45deg, #ffffff, #138808, #ff9933); background-clip: text; color: transparent; }
+      100% { background: linear-gradient(45deg, #138808, #ff9933, #ffffff); background-clip: text; color: transparent; }
     }
 
     /* Button styling for "Click Here" */
