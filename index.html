@@ -61,6 +61,10 @@
       transition: transform 0.3s ease;
       z-index: 10;
       margin-top: 20px;
+      position: relative;
+      top: 0.3in; /* Move button 0.3 inches down */
+      left: 50%;
+      transform: translateX(-50%); /* Center button */
     }
 
     .button:hover {
@@ -78,6 +82,8 @@
         padding: 10px 20px;
         max-width: 100%;
         margin-top: 20px;
+        position: relative;
+        top: 0.3in; /* Keep the same margin on mobile */
       }
 
       .countdown-container {
@@ -95,17 +101,17 @@
 </head>
 <body>
 
+  <!-- Button for site link at the top -->
+  <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
+    घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
+  </a>
+
   <div class="countdown-container">
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
     
     <!-- Greeting Message -->
     <div class="greeting-message" id="greeting-message"></div>
-
-    <!-- Button for site link at the bottom -->
-    <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
-      घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
-    </a>
   </div>
 
   <script>
