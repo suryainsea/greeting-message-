@@ -22,10 +22,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column; /* Default column direction */
+      flex-direction: column;
       height: 100%;
       text-align: center;
-      padding: 60px 20px 20px; /* Added top padding to avoid overlap */
+      padding: 60px 20px;
     }
 
     /* Countdown text with tricolor animation */
@@ -65,8 +65,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
       z-index: 10;
-      margin-top: 20px; /* Margin to separate button from countdown */
-      display: inline-block; /* Ensure the button stays in a single line */
+      margin-top: 20px;
     }
 
     .button:hover {
@@ -76,7 +75,7 @@
     /* Media query for mobile responsiveness */
     @media (max-width: 600px) {
       .countdown {
-        font-size: 35px; /* Reduced font size */
+        font-size: 35px;
         padding: 20px;
       }
 
@@ -84,22 +83,32 @@
         font-size: 18px;
         padding: 10px 20px;
         max-width: 100%;
-        margin-top: 10px;
-        position: static;
-        transform: none;
+        margin-top: 20px;
       }
 
-      /* Align button and countdown text in one line on mobile */
       .countdown-container {
-        flex-direction: column; /* Maintain column direction for mobile */
-        align-items: center;
-        justify-content: center;
+        padding: 20px;
       }
 
-      /* Adjust button margin and padding for mobile */
-      .button {
-        margin-top: 15px; /* Added some space between text and button */
+      .button-container {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
+
+      .countdown-container {
+        height: auto;
+      }
+    }
+
+    /* Ensuring the greeting message doesn't overlap with the button */
+    .greeting-message {
+      font-size: 18px;
+      padding-top: 20px;
+      margin-top: 30px;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -113,6 +122,15 @@
   <div class="countdown-container">
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
+    
+    <!-- Container for Button and Greeting Message -->
+    <div class="button-container">
+      <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
+        घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
+      </a>
+      <!-- Greeting Message -->
+      <div class="greeting-message" id="greeting-message"></div>
+    </div>
   </div>
 
   <script>
@@ -137,9 +155,10 @@
       countdownMessage.innerHTML =
         name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
 
-      // If countdown is over, display a message
+      // Update the greeting message
+      var greetingMessage = document.getElementById("greeting-message");
       if (distance < 0) {
-        countdownMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
+        greetingMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
       }
     }
 
