@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown to Republic Day 2025</title>
   <style>
-    /* Body styling for background image */
     body {
-      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg'); /* New image link */
+      background-image: url('https://i.postimg.cc/bvdR0qTL/MARS-DEKHO.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -17,7 +16,6 @@
       color: white;
     }
 
-    /* Centering the countdown */
     .countdown-container {
       display: flex;
       justify-content: center;
@@ -28,7 +26,6 @@
       padding: 60px 20px;
     }
 
-    /* Countdown text with tricolor animation */
     .countdown {
       font-size: 50px;
       font-weight: bold;
@@ -45,14 +42,12 @@
       text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
     }
 
-    /* Animation for tricolor effect */
     @keyframes tricolor {
       0% { background: linear-gradient(45deg, #ff9933, #ffffff, #138808); background-clip: text; color: transparent; }
       50% { background: linear-gradient(45deg, #ffffff, #138808, #ff9933); background-clip: text; color: transparent; }
       100% { background: linear-gradient(45deg, #138808, #ff9933, #ffffff); background-clip: text; color: transparent; }
     }
 
-    /* Button styling for "Click Here" */
     .button {
       font-size: 22px;
       padding: 12px 25px;
@@ -72,7 +67,6 @@
       transform: scale(1.1);
     }
 
-    /* Media query for mobile responsiveness */
     @media (max-width: 600px) {
       .countdown {
         font-size: 35px;
@@ -89,21 +83,8 @@
       .countdown-container {
         padding: 20px;
       }
-
-      .button-container {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      .countdown-container {
-        height: auto;
-      }
     }
 
-    /* Ensuring the greeting message doesn't overlap with the button */
     .greeting-message {
       font-size: 18px;
       padding-top: 20px;
@@ -123,46 +104,33 @@
     <!-- Countdown Text -->
     <div class="countdown" id="countdown"></div>
     
-    <!-- Container for Button and Greeting Message -->
-    <div class="button-container">
-      <a href="https://sites.google.com/view/scliteracy/home" class="button" target="_blank">
-        घर बैठे कम्प्युटर सीखने के लिए यहाँ क्लिक करें
-      </a>
-      <!-- Greeting Message -->
-      <div class="greeting-message" id="greeting-message"></div>
-    </div>
+    <!-- Greeting Message -->
+    <div class="greeting-message" id="greeting-message"></div>
   </div>
 
   <script>
-    var name = "SCL Academy"; // Default name
+    var name = "SCL Academy";
 
-    // Function to update countdown dynamically
     function updateCountdown() {
-      var now = new Date().getTime();  // Current time
-      var targetDate = new Date("January 26, 2025 00:00:00").getTime();  // Target date
-
-      // Calculate the difference between current time and target date
+      var now = new Date().getTime();
+      var targetDate = new Date("January 26, 2025 00:00:00").getTime();
       var distance = targetDate - now;
 
-      // Time calculations for days, hours, minutes, and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Update the countdown display with the dynamic name and message
       var countdownMessage = document.getElementById("countdown");
       countdownMessage.innerHTML =
         name + " के तरफ से आपको " + days + " दिन " + hours + " घंटे " + minutes + " मिनट " + seconds + " सेकंड पहले REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ ।";
 
-      // Update the greeting message
       var greetingMessage = document.getElementById("greeting-message");
       if (distance < 0) {
         greetingMessage.innerHTML = name + " के तरफ से आपको REPUBLIC DAY 2025 की हार्दिक शुभकामनाएँ । आज का दिन आ गया है!";
       }
     }
 
-    // Update countdown every second
     setInterval(updateCountdown, 1000);
   </script>
 
